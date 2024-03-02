@@ -33,8 +33,6 @@ class Ball extends Actor {
         this.vel = this.vel.add(bump);
         this.vel.clampMagnitude(CONFIG.BALL.SPEED * 2);
       }
-
-      console.log(this.vel.size);
     }
   }
 
