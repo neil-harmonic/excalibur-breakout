@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "lint:js": "eslint **/*.{js,mjs,ts}",
+    "lint": "eslint **/*.{js,mjs,ts}",
     "lint:fix": "eslint **/*.{js,,mjs,ts} --fix",
     "watch": "rollup --config --watch",
     "build": "rollup --config",
