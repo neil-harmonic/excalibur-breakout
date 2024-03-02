@@ -4,6 +4,6 @@ Experimenting with the [excalibur tutorial](https://excaliburjs.com/docs/getting
 
 ## Running
 
-```npm install```
-```npm run watch```
-```npm run serve``
+- ```npm install```
+- ```npm run watch```
+- ```npm run serve```
