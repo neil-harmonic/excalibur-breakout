@@ -1,9 +1,8 @@
 import { Actor, CollisionType, Color, Engine, Keys } from 'excalibur';
-import Ball from './ball';
 import CONFIG from './config';
 
 class Paddle extends Actor {
-  constructor(private readonly _ball: Ball) {
+  constructor() {
     super({
       x: CONFIG.GAME.WIDTH / 2,
       y: CONFIG.GAME.HEIGHT - CONFIG.PADDLE.HEIGHT / 2 - 5,
@@ -15,14 +14,6 @@ class Paddle extends Actor {
   }
 
   public update(engine: Engine): void {
-    // Blatant cheating! But useful for testing. 🙈
-    if (engine.input.keyboard.isHeld(Keys.C)) {
-      this.pos.x = this._ball.pos.x;
-      this.vel.setTo(0, 0);
-      this.acc.setTo(0, 0);
-      return;
-    }
-
     if (engine.input.keyboard.isHeld(Keys.ArrowLeft)) {
       this.vel.x = -CONFIG.PADDLE.SPEED;
     } else if (engine.input.keyboard.isHeld(Keys.ArrowRight)) {
@@ -30,6 +21,12 @@ class Paddle extends Actor {
     } else if (this.vel.x !== 0) {
       this.acc.setTo(this.vel.x * -5, 0);
     }
+  }
+
+  public teleportTo(x: number): void {
+    this.pos.x = x;
+    this.vel.setTo(0, 0);
+    this.acc.setTo(0, 0);
   }
 }
 
